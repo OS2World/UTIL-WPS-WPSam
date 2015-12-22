@@ -1,0 +1,54 @@
+# Created by IBM WorkFrame/2 MakeMake at 00:50:11 on 07/13/94
+#
+# This makefile should be run in the following directory:
+#   d:\work\c\wpsam\initos2
+#
+# The actions included in this makefile are:
+#   COMPILE::CLC C
+#   LINK::LINK386: Link
+
+
+.all: \
+  .INITCPY \
+  .\INITOS2.EXE
+
+.SUFFIXES:
+
+.SUFFIXES: .C
+
+.INITCPY: INITDLG.H
+      copy INIT$(LANG).H INITDLG.H
+
+.C.obj:
+      @echo WF::COMPILE::CLC C
+      icc.exe /I.. /Ss /Q /Wcnveffparprorearetuse /Tx /Ti /Gm /G4 /C   %s
+
+{..}.C.obj:
+      @echo WF::COMPILE::CLC C
+      icc.exe /I.. /Ss /Q /Wcnveffparprorearetuse /Tx /Ti /Gm /G4 /C   %s
+
+.\INITOS2.EXE: \
+    .\WINMAN.obj \
+    .\WINPROC.obj \
+    .\INITOS2.obj \
+    .\MAGSUPP.obj \
+    .\MAKEINI.obj \
+    .\REGION.obj \
+    {$(LIB)}cutil.lib \
+    MAKEFILE
+      @echo WF::LINK::ILINK: Link
+      ilink.exe @<<
+        /Out:INITOS2.EXE
+        /PM:VIO $(LDB) /NOLOGO
+        .\WINMAN.obj
+        .\WINPROC.obj
+        .\INITOS2.obj
+        .\MAGSUPP.obj
+        .\MAKEINI.obj
+        .\REGION.obj
+        cutil.lib
+<<
+
+
+!include MAKEFILE.Dep
+

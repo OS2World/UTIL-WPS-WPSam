@@ -1,0 +1,99 @@
+
+         WPSam - WorkPlaceShell Access Manager Version 3.0á
+
+*** BITTE LESEN SIE ZUERST DIE FOLGENDE ANLEITUNG SORGFLTIG DURCH ***
+
+
+        Beschreibung
+
+WPSam ist eine Erweiterung der OS/2 Workplace Shell ab Version 2.1 und
+wie diese komplett in SOM implementiert.  Das  Arbeiten  mit  und  die 
+Installation  von WPSam gestaltet  sich  daher v”llig  anders  als das
+bei anderen Programmen oder gar Betriebssystemen blich ist.
+
+
+        Installationsprogramm
+
+Dieses  Installationsprogramm  geht  davon  aus, daá es sich auf einer
+Diskette  im Root-Verzeichnis (\) befindet. Es sollte sich  mindestens
+die Datei WPSAM im Root-Verzeichnis eines Laufwerkes befinden.
+
+Ebenfalls sollten Sie sich immer in der Stamm-Arbeitsoberfl„che (ROOT)
+befinden wenn sie das Installationsprogramm starten. Beim Installieren
+ist das  automatisch  der Fall, beim  Deinstallieren sollten  Sie aber
+unbedingt daran denken.
+
+
+        InitOS2
+
+Sie  k”nnen w„hrend  der Installation  ausw„hlen,  ob sie  InitOS2 mit
+installieren  wollen.  InitOS2  ist  ein  Zusatzprogramm,  das bereits
+w„hrend des Bootvorganges des Rechners den Benutzernamen und ggf.  ein
+Passwort verlangt. Man kann damit zweierlei erreichen:
+
+1.) Zugangsschutz  am  Rechner (in  Verbindung mit einem ROM-BIOS, das
+    das  Booten vom  Laufwerk A: verhindert und selbst  Passwortschutz
+    enth„lt).
+
+2.) Benutzer  die  neben der  Arbeitsoberfl„che  und  OS2.INI auch ein 
+    eigenes  OS2SYS.INI  besitzen und damit v”llig  unabh„ngig von der
+    "Stammarbeitsoberfl„che"  sind.  Dies  ist z.B. in  Verbindung mit 
+    fehlerhafter  Software recht  ntzlich wenn  diese durch  Probleme 
+    mit der WPS nicht  zusammen mit einem  anderen Produkt installiert 
+    werden kann.
+
+Wichtig: Wenn Sie InitOS2 mitinstallieren, so mssen Sie  bereits beim
+         n„chsten  Booten einen  Benutzernamen eingeben.  Der Default-
+         Benutzername fr die Stammarbeitsoberfl„che lautet "ROOT" !!
+
+
+        Hinweise zur Arbeitsweise
+
+WPSam ist ein Programmpaket das es erlaubt,  verschiedene Arbeitsober-
+fl„chen zu erstellen und zu verwalten.
+
+Jede  Arbeitsoberfl„che  wird  dabei  zusammen mit  ihren  zugeh”rigen
+INI-Dateien  in einem  speziellen Ordner fr  WPSam-Arbeitsoberfl„chen
+aufbewahrt.
+
+Um auf  eine  andere  Arbeitsoberfl„che  umzuschalten  gengt es,  den 
+entsprechenden  Ordner  anzuklicken.  Desweiteren besteht die M”glich-
+keit,  bereits beim Booten des Rechners die zu ladende Arbeitsoberfl„-
+che anzugeben.
+
+Eine  Vorlage fr den  WPSam-Ordner befindet sich im Schablonenordner.
+Beachten Sie, daá fr jede neu angelegte  Arbeitsoberfl„che dabei eine 
+neue  Verzeichnisstruktur  angelegt wird.  Dabei  laufen  die gleichen 
+Vorg„nge  ab  wie  nach der Installation.  Haben Sie also beim  ersten 
+™ffnen eines neuen Benutzers ein wenig Geduld.
+
+
+        Deinstallation
+
+Da  diese  WPS-Erweiterung in die  Funktion der  Workplace-Shell  ein-
+greift, sollte man nicht versuchen, durch L”schen von Dateien oder 
+Eintr„gen in INI-Dateien WPSam zu deinstallieren.  Bitte verwenden Sie
+dazu dieses Installationsprogramm. Es entfernt bei Deinstallation alle 
+angelegten  Dateien und  INI-Eintr„ge - nur die von  Ihnen  angelegten  
+Benutzer  sollten sie vorher selbst l”schen.  Nicht gel”schte Benutzer 
+sind nicht  sch„dlich - es bleiben nur fr die WPS unsichtbare Dateien 
+zurck.
+
+Bitte beachten Sie, daá Sie auch zum Deinstallieren das Installations-
+programm nur von der Stammarbeitsoberfl„che aus benutzen drfen.
+
+
+**************************** A C H T U N G ***************************
+
+SOM-Umgebungen  mit  einer  SOM2-Runtime (z. B. OS/2 Warp 3.0 oder IBM 
+WorkFrame 2.1) haben ein Problem mit der L„nge von Pfadnamen. Aus die-
+sem Grund sollte der Name von Arbeitsoberfl„chen einschlieáliche ihrem 
+Pfad ab dem Root-Verzeichnis von der L„nge her begrenzt sein. Wird der
+Standard  des  Installationsprogrammes  "\WPSAM\USR"  verwendet,  sind 
+immerhin noch mindestens 13 Zeichen m”glich.
+
+Bei  zu langen Namen bleibt das System beim ersten Aufruf der Arbeits-
+oberfl„che mit einem leeren, grauen Desktop beim Umschalten h„ngen. 
+
+**********************************************************************
+

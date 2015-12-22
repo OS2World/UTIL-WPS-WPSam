@@ -1,0 +1,32 @@
+#include <os2.h>
+#include "wpsamfdlg.h"
+#include "wpsampan.h"
+
+RCINCLUDE "WPSamFUS.dlg"
+
+MENU ID_ORIGDESK LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "Root ~desktop", IDM_ORIGDESK
+
+#ifdef DEBUG
+   MENUITEM "~DEBUG (WPSamF)", IDM_OPENDEBUG
+#endif
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TITLE_WPSAMF            "Desktop"
+
+    /* Hinweise */
+    IDS_INFORMATION             "Information!"
+    IDS_ALREADYINROOT           "This is already the root desktop."
+
+    /* Fehler */
+    IDS_SAVESTATEFAILED         "The instance data could not be saved!"
+    IDS_PRFRESETERROR           "Error during reset of user- or system-profiles!"
+
+    /* Namen der Tab-Marken */
+    IDS_WPSAMF_PG1          "~Contextmenu"
+END
+
+

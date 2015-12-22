@@ -1,0 +1,104 @@
+#include <os2.h>
+#include "wpsamdlg.h"
+#include "wpsampan.h"
+
+POINTER ID_ICON LOADONCALL MOVEABLE DISCARDABLE wpsam.ico
+
+RCINCLUDE "WPSamUS.dlg"
+
+MENU ID_SHELL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "~Workplace Shell", IDM_OPENWP
+END
+
+MENU ID_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "~About", IDM_ABOUT
+END
+
+#ifdef DEBUG
+MENU ID_OPENDEBUG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "~DEBUG (WPSam)", IDM_OPENDEBUG
+END
+#endif
+
+STRINGTABLE
+BEGIN
+    IDS_TITLE_WPSAM             "User"
+
+    IDS_DESKTOP                 "Desktop_"
+
+    /* Default Werte */
+    IDS_DEF_PASSWORD            ""
+
+    /* Hinweise */
+    IDS_INFORMATION             "Information!"
+    IDS_WRONGPWDOLD             "Wrong old password!"
+    IDS_WRONGPWDVER             "Wrong verification!"
+    IDS_WRONGPWD                "Wrong password!"
+    IDS_WRONGPWDS               " unsuccessful password attempt(s)!"  /* trailing blank! */
+    IDS_ALREADYINUSER           "User is already active!"
+    IDS_WRONGVER                "Registration password expired!"
+    IDS_NOUSERINICREATED        "The userprofile could not be created!"
+    IDS_NOSYSTEMINICREATED      "The systemprofile could not be created!"
+    IDS_NOUSERRESOURCE          "User resource not found!"
+    IDS_NOSYSTEMRESOURCE        "System resource not found!"
+    IDS_NODESKINRC              "The Desktop definition in the resourcefile is missing or wrong!"
+    IDS_USERWITHSYSTEMINI       "Users with a private systemprofile can only be started by the InitOS2 program!"
+
+    /* Fehler */
+    IDS_SAVESTATEFAILED         "The instance data could not be saved!"
+    IDS_RESTORESTATEFAILED      "The instance data could not be restored!"
+    IDS_PRFRESETERROR           "Error during reset of user- or system-profiles!"
+    IDS_REALNAMEERROR           "Couldn't find my location!"
+    IDS_SAVEREGPWD              "The registration password could not be saved!"
+    IDS_PATHTOOLONG             "Path of user directory is too long!"
+
+    /* Environment */
+    IDS_ENV1                    "PROTSHELL"
+    IDS_DEF_ENV1                ""
+    IDS_ENV2                    "RUNWORKPLACE"
+    IDS_DEF_ENV2                ""
+    IDS_ENV3                    "OS2_SHELL"
+    IDS_DEF_ENV3                ""
+    IDS_ENV4                    "COMSPEC"
+    IDS_DEF_ENV4                ""
+    IDS_ENV5                    "RESTARTOBJECTS"
+    IDS_DEF_ENV5                "REBOOTONLY"
+
+    /* Profiles */
+    IDS_USERPROFILE             "OS2.INI"
+    IDS_SYSTEMPROFILE           "OS2SYS.INI"
+    IDS_USERRESOURCE            ":\\OS2\\INI.RC"
+    IDS_SYSTEMRESOURCE          ":\\OS2\\INISYS.RC"
+
+    /* History */
+    IDS_SETUP                   "Setup"
+    IDS_WRONGPASSWORD           "Wrong password"
+    IDS_PRFRESET                "Switch profile"
+
+    /* Namen der Tab-Marken */
+    IDS_WPSAM_PG1           "W~PSam"
+    IDS_WPSAM_INIT          "~Init OS/2"
+END
+
+/* Helptables */
+HELPTABLE IDH_MAIN
+    {
+    HELPITEM IDD_PWDIN, IDH_PWDIN, PANEL_PWDIN
+    HELPITEM IDD_ABOUT, IDH_ABOUT, PANEL_ABOUT
+    }
+
+/* IDD_PWDIN */
+HELPSUBTABLE IDH_PWDIN
+    {
+    HELPSUBITEM IDD_PWDIN, PANEL_PWDIN
+    }
+
+/* IDD_ABOUT */
+HELPSUBTABLE IDH_ABOUT
+    {
+    HELPSUBITEM IDD_ABOUT, PANEL_ABOUT
+    }
+

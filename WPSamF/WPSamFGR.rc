@@ -1,0 +1,32 @@
+#include <OS2.H>
+#include "WPSamFDlg.h"
+#include "WPSamPan.h"
+
+RCINCLUDE "WPSamFGR.dlg"
+
+MENU ID_ORIGDESK LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "Sta~mmarbeitsoberflÑche", IDM_ORIGDESK
+
+#ifdef DEBUG
+   MENUITEM "~DEBUG (WPSamF)", IDM_OPENDEBUG
+#endif
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TITLE_WPSAMF            "ArbeitsoberflÑche"
+
+    /* Hinweise */
+    IDS_INFORMATION             "Hinweis!"
+    IDS_ALREADYINROOT           "Dies ist bereits die StammarbeitsoberflÑche."
+
+    /* Fehler */
+    IDS_SAVESTATEFAILED         "Instanzdaten konnten nicht gesichert werden!"
+    IDS_PRFRESETERROR           "Fehler wÑhrend des RÅcksetzens eines Profils!"
+
+    /* Namen der Tab-Marken */
+    IDS_WPSAMF_PG1              "K~ontextmenÅ"
+END
+
+

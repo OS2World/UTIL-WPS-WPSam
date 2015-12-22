@@ -1,0 +1,118 @@
+# IBM Developer's Workframe/2 Make File Creation run at 21:14:34 on 02/28/94
+
+# Make File Creation run in directory:
+#   D:\WORK\C\WPSAM\WPSAMF;
+
+# Assumed INCLUDE environment variable path:
+#   C:\TOOLKT21\C\OS2H;
+#   C:\TOOLKT21\ASM\OS2INC;
+#   C:\IBMCPP\INCLUDE;
+#   C:\IBMCPP\IBMCLASS;
+#   C:\TOOLKT21\C\OS2H\VDD;
+
+
+INCLUDE002=.
+INCLUDE002=$(INCLUDE002);$(INCLUDE)
+
+INCLUDE001=.
+INCLUDE001=$(INCLUDE001);..
+INCLUDE001=$(INCLUDE001);$(INCLUDE)
+
+INCLUDE000=..
+INCLUDE000=$(INCLUDE000);$(INCLUDE)
+
+
+WPSamF$(LANG).RES:  WPSamF$(LANG).rc  \
+#  {$(INCLUDE002)}OS2.H  \
+   {$(INCLUDE002)}WPSAMFDLG.H  \
+   {$(INCLUDE000)}WPSAMPAN.H  \
+   WPSAMF$(LANG).DLG  \
+     WPSAMFDLG.H  \
+   MAKEFILE
+
+WPSAMF.IH: WPSAMF.CSC \
+   MAKEFILE
+
+SamFDlg.OBJ:  SamFDlg.c  \
+#  {$(INCLUDE000)}string.h  \
+#  {$(INCLUDE000)}stdlib.h  \
+   {$(INCLUDE001)}wpsamf.ih  \
+#    {$(INCLUDE000)}os2.h  \
+#    {$(INCLUDE000)}pmwp.h  \
+#    {$(INCLUDE000)}samglob.h  \
+#    {$(INCLUDE000)}wpsamdlg.h  \
+     {$(INCLUDE001)}wpsamf.h  \
+#      {$(INCLUDE000)}som.h  \
+       {$(INCLUDE001)}wpdesk.h  \
+#        {$(INCLUDE000)}som.h  \
+         {$(INCLUDE001)}wpfolder.h  \
+#          {$(INCLUDE000)}som.h  \
+           {$(INCLUDE001)}wpfsys.h  \
+#            {$(INCLUDE000)}som.h  \
+             {$(INCLUDE001)}wpobject.h  \
+#              {$(INCLUDE000)}pmstddlg.h  \
+#              {$(INCLUDE000)}som.h  \
+#              {$(INCLUDE000)}somobj.h  \
+   {$(INCLUDE001)}wpsamf.ph  \
+#    {$(INCLUDE001)}wpsamf.h  \
+   MAKEFILE
+
+
+SamFNonM.OBJ:  SamFNonM.c  \
+#  {$(INCLUDE000)}ctype.h  \
+#  {$(INCLUDE000)}stdio.h  \
+#  {$(INCLUDE000)}stdlib.h  \
+#  {$(INCLUDE000)}string.h  \
+#    {$(INCLUDE000)}os2.h  \
+#    {$(INCLUDE000)}samglob.h  \
+#    {$(INCLUDE000)}wpsamdlg.h  \
+#    {$(INCLUDE000)}pmwp.h  \
+     {$(INCLUDE001)}crypt.h  \
+#      {$(INCLUDE000)}som.h  \
+       {$(INCLUDE001)}wpfolder.h  \
+#        {$(INCLUDE000)}som.h  \
+         {$(INCLUDE001)}wpfsys.h  \
+#          {$(INCLUDE000)}som.h  \
+           {$(INCLUDE001)}wpobject.h  \
+#            {$(INCLUDE000)}pmstddlg.h  \
+#            {$(INCLUDE000)}som.h  \
+#            {$(INCLUDE000)}somobj.h  \
+   MAKEFILE
+
+WPSamF.OBJ:  WPSamF.c  \
+#  {$(INCLUDE000)}string.h  \
+#  {$(INCLUDE000)}stdlib.h  \
+#  {$(INCLUDE000)}stdio.h  \
+#  {$(INCLUDE000)}memory.h  \
+   {$(INCLUDE001)}wpsamf.ih  \
+#    {$(INCLUDE000)}os2.h  \
+#    {$(INCLUDE000)}pmwp.h  \
+#    {$(INCLUDE000)}samglob.h  \
+#    {$(INCLUDE000)}wpsamdlg.h  \
+     {$(INCLUDE001)}wpsamf.h  \
+#      {$(INCLUDE000)}som.h  \
+       {$(INCLUDE001)}wpdesk.h  \
+#        {$(INCLUDE000)}som.h  \
+         {$(INCLUDE001)}wpfolder.h  \
+#          {$(INCLUDE000)}som.h  \
+           {$(INCLUDE001)}wpfsys.h  \
+#            {$(INCLUDE000)}som.h  \
+             {$(INCLUDE001)}wpobject.h  \
+#              {$(INCLUDE000)}pmstddlg.h  \
+#              {$(INCLUDE000)}som.h  \
+#              {$(INCLUDE000)}somobj.h  \
+   {$(INCLUDE001)}wpsamf.ph  \
+#    {$(INCLUDE001)}wpsamf.h  \
+   MAKEFILE
+
+MakeIni.OBJ: ..\MakeIni.c \
+  {$(INCLUDE000)}samglob.h \
+  MAKEFILE
+
+Printf.OBJ: Printf.c \
+  MAKEFILE
+
+Debug.OBJ: Debug.c \
+  MAKEFILE
+
+

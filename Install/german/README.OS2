@@ -1,0 +1,95 @@
+
+         WPSam - WorkPlaceShell Access Manager Version 3.0á
+
+*** READ THE FOLLOWING INSTRUCTIONS CAREFULLY BEFORE INSTALLATION ***
+
+
+        Description
+
+WPSAM is an Extension of the OS/2  Workplace  Shell running on version
+2.1  and  up  and  like the WPS itself implemented  completely in SOM.
+Therefore  working with and Installing of WPSam  is somehow  different
+from what you are used to from other programs or operating systems.
+
+
+
+        Install Program
+
+This install  program  is designed  to be on a  diskette drive  in the
+"\"-directory. Have at least the file WPSAM on a diskette.
+
+Additionally make shure to be on  the root desktop when you start this
+installation program. When you  install first time this is necessarily
+the case but remember it when deinstalling.
+
+
+
+        InitOS2
+
+During installation you may select  whether to install InitOS2 or not.
+InitOS2  is  an  additional   program  asking  for a  user  name  and,
+optionally, for  a password during  boot of OS/2.  This serves for two
+purposes:
+
+1.) Access protection for the computer (mostly in connection with a
+    ROM BIOS avoiding booting from drive A: and containing password
+    protection itself.
+
+2.) Creation of users having not only a separate Desktop and OS2.INI
+    but also their own OS2SYS.INI and are fully independant from the
+    "root desktop"  therefore. This  could be  rather useful  during
+    software development or usage of slightly buggy software or when
+    using software not compatible with another product.
+
+Note: When installing with InitOS2, you are prompted for a user name
+      and password already during  the next bootup. The default user
+      name for the root desktop is "ROOT" !!
+
+
+        How WPSam works
+
+WPSam is a  program bundle,  allowing to  create and  handle different
+desktops.
+
+Every desktop is stored together with the corresponding INI files in a
+special folder, the so called desktop container.
+
+To switch to another desktop simply double click the user desktop icon
+belonging  to.  It is also  possible to enter the  desktop name during 
+boot of the computer.
+
+There is a template for a desktop container contained in the templates
+folder. Please note that a new desktop directroy structure is created.
+This  is  the  same  action as is done during the first boot after in-
+stallation of OS/2. Please be patient when a new user is opened first
+time.
+
+
+        Deinstallation
+
+Due to the fact that WPSam is  an extension to the workplace shell and
+gears into it you should not  try to deinstall WPSam by deleting files
+or INI  file entries.  Please use this  installation program  for that
+purpose. It removes not only the installed files but also entries made
+in INI files.  Only users created by you have to be removed by hand if
+you don't want to install WPSam later.  If you don't remove users this
+causes no harm to  your system - there are only  some files left which
+are invisible for the WPS.
+
+Please note that you  have to be  on the  root desktop  when using the
+installation program for deinstallation also.
+
+*********************** A T T E N T I O N ****************************
+
+SOM-environments  using  a  SOM2  runtime  (e. g. OS/2 Warp 3.0 or IBM
+WorkFrame 2.1)  habe a problem concerning long path names. This is the 
+reason, why the name of your desktops including the path starting from 
+root  should be  restricted in length. If the standard of the install-
+ation  procedure  "\WPSAM\USR"  is  used, at  least 13  characters are 
+possible for the desktop name.
+
+Using  too  long  names  results  in  a  hangup  of your  system while 
+switching to such a desktop.
+
+**********************************************************************
+

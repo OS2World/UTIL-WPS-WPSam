@@ -1,0 +1,193 @@
+DLGINCLUDE 1 "WPSamDlg.h"
+
+DLGTEMPLATE IDD_DEBUG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Debug", IDD_DEBUG, 12, 37, 266, 166, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        GROUPBOX        "SOM_TraceLevel", -1, 5, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_TL_0, 27, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_TL_1, 27, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_TL_2, 27, 111, 39, 10
+        GROUPBOX        "SOM_WarnLevel", -1, 92, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_WL_0, 114, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_WL_1, 114, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_WL_2, 114, 111, 39, 10
+        GROUPBOX        "SOM_AssertLevel", -1, 179, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_AL_0, 201, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_AL_1, 201, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_AL_2, 201, 111, 39, 10
+        ENTRYFIELD      "FFFFFFFF", DID_DM, 68, 7, 44, 8, ES_MARGIN | 
+                        WS_GROUP
+        LTEXT           "Debug-mask", -1, 5, 7, 60, 8
+        MLE             "", DID_DT, 5, 22, 257, 77, MLS_READONLY | 
+                        MLS_VSCROLL | MLS_IGNORETAB | NOT WS_TABSTOP
+                        PRESPARAMS PP_FONTNAMESIZE, "10.System VIO"
+    END
+END
+
+DLGTEMPLATE IDD_CREATE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "WPSam", IDD_CREATE, 0, 0, 250, 150, NOT FS_DLGBORDER | 
+            WS_VISIBLE
+    BEGIN
+        GROUPBOX        "User profile", -1, 12, 86, 150, 62
+        LTEXT           "Resource", -1, 22, 128, 39, 8, NOT WS_GROUP
+        ENTRYFIELD      "", DID_USERRESOURCE, 24, 118, 126, 8, ES_MARGIN
+        LTEXT           "Profile", -1, 22, 104, 28, 8, NOT WS_GROUP
+        ENTRYFIELD      "", DID_USERPROFILE, 24, 94, 126, 8, ES_MARGIN
+        GROUPBOX        "System profile", -1, 12, 5, 150, 76
+        LTEXT           "Resource", -1, 22, 61, 39, 8, NOT WS_GROUP
+        ENTRYFIELD      "", DID_SYSTEMRESOURCE, 24, 51, 126, 8, ES_MARGIN
+        LTEXT           "Profile", -1, 22, 37, 28, 8, NOT WS_GROUP
+        ENTRYFIELD      "", DID_SYSTEMPROFILE, 24, 27, 126, 8, ES_MARGIN
+        AUTORADIOBUTTON "Global", DID_GLOBALSYS, 23, 10, 40, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "Private", DID_PRIVATESYS, 83, 10, 44, 10
+        PUSHBUTTON      "Help", DID_HELP, 166, 5, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | WS_GROUP
+    END
+END
+
+DLGTEMPLATE IDD_INITOS2 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Init OS/2", IDD_INITOS2, 0, 0, 250, 150, NOT FS_DLGBORDER | 
+            WS_VISIBLE
+    BEGIN
+        GROUPBOX        "ProtShell", -1, 12, 60, 150, 43
+        AUTORADIOBUTTON "Default (from config.sys)", DID_PROT_DEFAULT, 22, 
+                        80, 127, 10, WS_TABSTOP
+        AUTORADIOBUTTON "", DID_PROT_OTHER, 22, 68, 14, 10
+        ENTRYFIELD      "", DID_PROT_OTHER_ENTRY, 34, 69, 116, 8, ES_MARGIN | 
+                        NOT WS_TABSTOP
+        AUTOCHECKBOX    "Add user to 'Init OS/2' menu", DID_PROT_INMENU, 22, 
+                        40, 185, 10, WS_GROUP
+        PUSHBUTTON      "Help", DID_HELP, 12, 10, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | WS_GROUP
+    END
+END
+
+DLGTEMPLATE IDD_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About / Registration", IDD_ABOUT, 13, 4, 220, 132, WS_VISIBLE, 
+            FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        ICON            ID_ICON, -1, 28, 111, 20, 16, WS_GROUP
+        CTEXT           "WPSam", -1, 65, 106, 75, 22, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00FF0000L
+                        PRESPARAMS PP_FONTNAMESIZE, "20.Helv"
+        RTEXT           "Version 3.0á", -1, 140, 112, 60, 8
+        LTEXT           "Copyright (C)", -1, 5, 92, 60, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00505050L
+                        PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+        LTEXT           "Noller & Breining Software,", -1, 70, 92, 145, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00505050L
+                        PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+        LTEXT           "1993, 1994", -1, 70, 82, 145, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00505050L
+                        PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+        LTEXT           "Author: Bernhard Budnik", -1, 5, 70, 120, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00505050L
+                        PRESPARAMS PP_FONTNAMESIZE, "10.Helv"
+        GROUPBOX        "Registration", -1, 5, 3, 210, 61
+        LTEXT           "registered for:", -1, 15, 44, 67, 8
+        ENTRYFIELD      "", DID_USERNAME, 17, 34, 186, 8, ES_MARGIN
+        LTEXT           "Password:", DID_PWDTXT, 15, 21, 71, 8, NOT 
+                        WS_VISIBLE
+        ENTRYFIELD      "", DID_PASSWORD, 17, 11, 186, 8, ES_MARGIN | NOT 
+                        WS_VISIBLE
+        PUSHBUTTON      "Help", DID_HELP, 175, 67, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS
+    END
+END
+
+DLGTEMPLATE IDD_PRFRESET LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "PrfReset", IDD_PRFRESET, 26, 80, 250, 30, WS_VISIBLE
+    BEGIN
+        CTEXT           "Positions of the workplace objects", -1, 5, 15, 240, 
+                        8
+        CTEXT           "are going to be saved.", -1, 5, 6, 240, 8
+    END
+END
+
+DLGTEMPLATE IDD_WAIT_PRFRESET LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Wait prfReset", IDD_WAIT_PRFRESET, 26, 96, 220, 28, WS_VISIBLE
+    BEGIN
+        CTEXT           "Changing the desktop will take 20 seconds.", -1, 5, 
+                        9, 240, 8
+    END
+END
+
+DLGTEMPLATE IDD_PWDIN LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Password", IDD_PWDIN, 11, 18, 168, 72, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR | FCF_MINBUTTON
+    BEGIN
+        LTEXT           "Password or magnetic stripe:", DID_PWDTXTMITKARTE,
+                        10, 50, 130, 8, NOT WS_VISIBLE
+        LTEXT           "Password:", DID_PWDTXTOHNEKARTE,
+                        10, 50, 130, 8, NOT WS_VISIBLE
+        ENTRYFIELD      "", DID_PWD, 12, 39, 144, 8, ES_MARGIN | 
+                        ES_UNREADABLE
+        DEFPUSHBUTTON   "Ok", DID_OK, 10, 11, 40, 14, WS_GROUP
+        PUSHBUTTON      "Cancel", DID_CANCEL, 64, 11, 40, 14, NOT WS_TABSTOP
+        PUSHBUTTON      "Help", DID_HELP, 118, 11, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | NOT WS_TABSTOP
+    END
+END
+
+DLGTEMPLATE IDD_PWD LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Password", IDD_PWD, 0, 0, 250, 150, NOT FS_DLGBORDER | 
+            WS_VISIBLE
+    BEGIN
+        GROUPBOX        "Change password", -1, 12, 45, 180, 90
+        LTEXT           "Old password or magnetic stripe:", DID_PWDOLDTXTMITKARTE,
+                        27, 111, 150, 8, NOT WS_GROUP | NOT WS_VISIBLE
+        LTEXT           "Old password:", DID_PWDOLDTXTOHNEKARTE,
+                        27, 111, 150, 8, NOT WS_GROUP | NOT WS_VISIBLE
+        ENTRYFIELD      "", DID_PWDOLD, 29, 100, 146, 8, ES_MARGIN | 
+                        ES_UNREADABLE
+        LTEXT           "New password or magnetic stripe:", DID_PWDNEWTXTMITKARTE,
+                        27, 87, 150, 8, NOT WS_GROUP | NOT WS_VISIBLE
+        LTEXT           "New password:", DID_PWDNEWTXTOHNEKARTE,
+                        27, 87, 150, 8, NOT WS_GROUP | NOT WS_VISIBLE
+        ENTRYFIELD      "", DID_PWDNEW, 29, 76, 146, 8, ES_MARGIN | 
+                        ES_UNREADABLE
+        LTEXT           "Verification:", -1, 27, 63, 150, 8, NOT WS_GROUP
+        ENTRYFIELD      "", DID_PWDVER, 29, 52, 146, 8, ES_MARGIN | 
+                        ES_UNREADABLE
+        AUTOCHECKBOX    "Enable password", DID_PWDENABLE, 12, 30, 86, 10, 
+                        WS_GROUP
+        DEFPUSHBUTTON   "Save", DID_OK, 12, 3, 40, 14, WS_GROUP
+        PUSHBUTTON      "Help", DID_HELP, 60, 3, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | NOT WS_TABSTOP
+    END
+END
+
+DLGTEMPLATE IDD_ADJUSTMENTS LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "WPSam", IDD_ADJUSTMENTS, 0, 0, 250, 150, NOT FS_DLGBORDER | 
+            WS_VISIBLE
+    BEGIN
+        LTEXT           "Environment", -1, 12, 136, 52, 8
+        MLE             "", DID_ENVIRONMENT, 12, 57, 188, 77, MLS_HSCROLL | 
+                        MLS_VSCROLL | MLS_IGNORETAB
+        GROUPBOX        "Style", -1, 12, 7, 100, 44
+        AUTOCHECKBOX    "Enable renaming", DID_RENENABLE, 21, 30, 85, 10
+        AUTOCHECKBOX    "Enable moving", DID_MOVEENABLE, 21, 20, 85, 10, NOT 
+                        WS_TABSTOP
+        AUTOCHECKBOX    "Allow dropping", DID_DROPALLOW, 21, 10, 85, 10, NOT 
+                        WS_TABSTOP
+        AUTOCHECKBOX    "Close applications", DID_CLOSEAPPL, 125, 35, 125, 10
+        PUSHBUTTON      "Help", DID_HELP, 160, 7, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | WS_GROUP
+    END
+END
+
+

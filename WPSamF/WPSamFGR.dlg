@@ -1,0 +1,72 @@
+DLGINCLUDE 1 "WPSamDlg.H"
+
+DLGTEMPLATE IDD_DEBUG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Debug", IDD_DEBUG, 12, 37, 266, 166, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        GROUPBOX        "SOM_TraceLevel", -1, 5, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_TL_0, 27, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_TL_1, 27, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_TL_2, 27, 111, 39, 10
+        GROUPBOX        "SOM_WarnLevel", -1, 92, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_WL_0, 114, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_WL_1, 114, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_WL_2, 114, 111, 39, 10
+        GROUPBOX        "SOM_AssertLevel", -1, 179, 105, 83, 57
+        AUTORADIOBUTTON "0", DID_AL_0, 201, 141, 39, 10, WS_GROUP | 
+                        WS_TABSTOP
+        AUTORADIOBUTTON "1", DID_AL_1, 201, 126, 39, 10
+        AUTORADIOBUTTON "2", DID_AL_2, 201, 111, 39, 10
+        ENTRYFIELD      "FFFFFFFF", DID_DM, 68, 7, 44, 8, ES_MARGIN | 
+                        WS_GROUP
+        LTEXT           "Debug-Maske", -1, 5, 7, 60, 8
+        MLE             "", DID_DT, 5, 22, 257, 77, MLS_READONLY | 
+                        MLS_VSCROLL | MLS_IGNORETAB | NOT WS_TABSTOP
+                        PRESPARAMS PP_FONTNAMESIZE, "10.System VIO"
+    END
+END
+
+DLGTEMPLATE IDD_CONTEXTMENU LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Kontext-MenÅ", IDD_CONTEXTMENU, 0, 0, 250, 150, NOT 
+            FS_DLGBORDER | WS_VISIBLE
+    BEGIN
+        GROUPBOX        "KontextmenÅ", -1, 12, 65, 138, 70
+        AUTOCHECKBOX    "Systemabschlu·", DID_SHUTDOWNENABLE, 24, 111, 120, 
+                        10
+        AUTOCHECKBOX    "Sperren", DID_LOCKUPENABLE, 24, 101, 120, 10, NOT 
+                        WS_TABSTOP
+        AUTOCHECKBOX    "StammarbeitsoberflÑche", DID_ORIGDESKENABLE, 24, 91, 
+                        120, 10, NOT WS_TABSTOP
+        AUTOCHECKBOX    "Anordnen", DID_ARRANGEENABLE, 24, 81, 120, 10, NOT 
+                        WS_TABSTOP
+        AUTOCHECKBOX    "Sortieren", DID_SORTENABLE, 24, 71, 120, 10, NOT 
+                        WS_TABSTOP
+        PUSHBUTTON      "Hilfe", DID_HELP, 12, 15, 40, 14, BS_HELP | 
+                        BS_NOPOINTERFOCUS | WS_GROUP
+    END
+END
+
+DLGTEMPLATE IDD_PRFRESET LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "PrfReset", IDD_PRFRESET, 26, 80, 250, 30, WS_VISIBLE
+    BEGIN
+        CTEXT           "Positionen der Objekte auf der ArbeitsoberflÑche", 
+                        -1, 5, 15, 240, 8
+        CTEXT           "werden jetzt gesichert.", -1, 5, 6, 240, 8
+    END
+END
+
+DLGTEMPLATE IDD_WAIT_PRFRESET LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Wait prfReset", IDD_WAIT_PRFRESET, 26, 40, 250, 26, WS_VISIBLE
+    BEGIN
+        CTEXT           "ArbeitsoberflÑche wird in 20 Sekunden gewechselt.", 
+                        -1, 5, 9, 240, 8
+    END
+END
+
+

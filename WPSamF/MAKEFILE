@@ -1,0 +1,75 @@
+#****************************************************************************
+#
+#  Workplace Shell Access Manager
+#
+#****************************************************************************
+
+#****************************************************************************
+#  Aufruf mit NMAKE [/LANGUAGE=US|GERMAN][/DEBUG=YES|NO]
+#    Defaults: LANGUAGE=US
+#              DEBUG=YES
+#****************************************************************************
+
+#****************************************************************************
+#  Dot directive definition area (usually just suffixes)
+#****************************************************************************
+
+.SUFFIXES:
+.SUFFIXES: .c .obj .dll .csc .sc .h .ih .ph .psc .rc .res .ipf .scr
+
+ALL: WPSamF.DLL \
+     WPSamF$(LANG).RES
+
+WPSamF.DLL:  \
+  WPSamF.OBJ \
+  SamFNonM.OBJ \
+  SamFDlg.OBJ \
+  MakeIni.OBJ \
+  $(ODB) \
+  $(DDB) \
+  WPSamF$(LANG).RES \
+  MAKEFILE
+   ICC.EXE @<<
+ /B" $(LDB) /pmtype:pm /nologo /noi /map /nod /exepack /packcode /packdata /align:16"
+ /Fe"WPSamF.DLL" CUtil.LIB dde4mbs.lib os2386.lib som.lib WPSamF.def
+WPSamF.OBJ
+SamFNonM.OBJ
+SamFDlg.OBJ
+MakeIni.OBJ
+$(ODB)
+$(DDB)
+<<
+   RC -i .. WPSamF$(LANG).RES WPSamF.DLL
+
+.csc.ih:
+   SC -v -r $<
+
+{.}.rc.res:
+   RC -i .. $(RDB) -r .\$*.RC
+
+# Compile switchs  that are enabled
+# /I      Search path for include files
+#(/Ti     Include debug information )  \  aus CDB-Makro
+#(/Dxxx   Define xxx)                  /     (DEBUG)
+# /Ss     Allow "//" for comment lines
+# /Q      Disable logo
+# /W      Warning
+#   cnv   Conversions
+#   par   Unused parameters
+#   pro   Missing function prototypes
+#   rea   Code that cannot be reached
+#   ret   Consistency of statements
+#   use   Unused "auto" and "static" variables
+# /Ms     Use the system calling convention and not optilink as the default
+# /Gm     Use the multi-threaded libraries
+# /Ge-    Build DLL
+# /G4     Optimize code for 80486
+# /C      Compile don't link
+{.}.c.obj:
+   ICC.EXE /I.. $(CDB) /Ss /Q /Wcnvparprorearetuse /Ms /Gm /Ge- /G4 /C  .\$*.c
+
+{..}.C.obj:
+   ICC.EXE /I.. $(CDB) /Ss /Q /Wcnvparprorearetuse /Ms /Gm /Ge- /G4 /C  %s
+
+!include MAKEFILE.DEP
+

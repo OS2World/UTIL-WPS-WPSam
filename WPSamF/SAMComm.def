@@ -1,0 +1,19 @@
+;  FileName: WPSAM.def.
+LIBRARY WPSAM INITINSTANCE
+DESCRIPTION 'WPSam Class Library'
+PROTMODE
+DATA MULTIPLE NONSHARED LOADONCALL
+EXPORTS
+   WPSamCClassData
+   WPSamClassData
+   WPSamNewClass
+   M_WPSamCClassData
+   M_WPSamClassData
+   M_WPSamNewClass
+   WPSamFCClassData
+   WPSamFClassData
+   WPSamFNewClass
+   M_WPSamFCClassData
+   M_WPSamFClassData
+   M_WPSamFNewClass
+

@@ -1,0 +1,34 @@
+# IBM Developer's Workframe/2 Make File Creation run at 16:39:37 on 02/19/94
+
+# Make File Creation run in directory:
+#   E:\SAM\SAMMY;
+
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+Sammy.exe:  \
+  Sammy.OBJ \
+  MAKEFILE
+  link386.exe Sammy.OBJ $(LDB) /NOL /map /PM:PM,Sammy.exe,,cutil;
+
+# /I      Search path for include files
+# /Ss     Allow "//" for comment lines
+# /Q      Disable logo
+# /W      Warning
+#   cnv   Conversions
+#   par   Unused parameters
+#   pro   Missing function prototypes
+#   rea   Code that cannot be reached
+#   ret   Consistency of statements
+#   use   Unused "auto" and "static" variables
+# /Ti     Include debug information
+# /Ms     Use the system calling convention and not optilink as the default
+# /Gm     Use the multi-threaded libraries
+# /G4     Optimize code for 80486
+# /C      Compile don't link
+{.}.c.obj:
+   ICC.EXE /I.. /Ss /Q /Wcnvparprorearetuse /Ti /Ms /Gm /G4 /C  .\$*.c
+
+!include MAKEFILE.DEP
+

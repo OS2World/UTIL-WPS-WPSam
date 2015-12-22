@@ -1,0 +1,104 @@
+#include <OS2.H>
+#include "wpsamdlg.h"
+#include "wpsampan.h"
+
+POINTER ID_ICON LOADONCALL MOVEABLE DISCARDABLE wpsam.ico
+
+RCINCLUDE "WPSamGR.dlg"
+
+MENU ID_SHELL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "Arbeits~oberflÑche", IDM_OPENWP
+END
+
+MENU ID_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "~Produktinformation", IDM_ABOUT
+END
+
+#ifdef DEBUG
+MENU ID_OPENDEBUG LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   MENUITEM "~DEBUG (WPSam)", IDM_OPENDEBUG
+END
+#endif
+
+STRINGTABLE
+BEGIN
+    IDS_TITLE_WPSAM             "Benutzer"
+
+    IDS_DESKTOP                 "ArbeitsoberflÑche_"
+
+    /* Default Werte */
+    IDS_DEF_PASSWORD            ""
+
+    /* Hinweise */
+    IDS_INFORMATION             "Hinweis!"
+    IDS_WRONGPWDOLD             "Altes Pa·wort falsch!"
+    IDS_WRONGPWDVER             "öberprÅfung negativ!"
+    IDS_WRONGPWD                "Falsches Pa·wort!"
+    IDS_WRONGPWDS               " fehlerhafte Pa·worteingabe(n)!"  /* trailing blank! */
+    IDS_ALREADYINUSER           "Benutzer ist bereits aktiv!"
+    IDS_WRONGVER                "Registrierungspa·wort ist fÅr diese Version nicht gÅltig!"
+    IDS_NOUSERINICREATED        "Benutzerprofil konnte nicht erzeugt werden!"
+    IDS_NOSYSTEMINICREATED      "Systemprofil konnte nicht erzeugt werden!"
+    IDS_NOUSERRESOURCE          "Benutzer-Resource nicht gefunden!"
+    IDS_NOSYSTEMRESOURCE        "System-Resource nicht gefunden!"
+    IDS_NODESKINRC              "Fehlende oder falsche Definition der ArbeitsoberflÑche in Resource-Datei!"
+    IDS_USERWITHSYSTEMINI       "Benutzer mit privatem Systemprofil kînnen nur vom InitOS2-Programm gestartet werden!"
+
+    /* Fehler */
+    IDS_SAVESTATEFAILED         "Instanzdaten konnten nicht gesichert werden!"
+    IDS_RESTORESTATEFAILED      "Instanzdaten konnten nicht restauriert werden!"
+    IDS_PRFRESETERROR           "Fehler wÑhrend des RÅcksetzens eines Profils!"
+    IDS_REALNAMEERROR           "Konnte meinen Pfad nicht finden!"
+    IDS_SAVEREGPWD              "Registrierungspa·wort konnte nicht gesichert werden!"
+    IDS_PATHTOOLONG             "Pfad des Benutzerverzeichnisses ist zu lang!"
+
+    /* Environment */
+    IDS_ENV1                    "PROTSHELL"
+    IDS_DEF_ENV1                ""
+    IDS_ENV2                    "RUNWORKPLACE"
+    IDS_DEF_ENV2                ""
+    IDS_ENV3                    "OS2_SHELL"
+    IDS_DEF_ENV3                ""
+    IDS_ENV4                    "COMSPEC"
+    IDS_DEF_ENV4                ""
+    IDS_ENV5                    "RESTARTOBJECTS"
+    IDS_DEF_ENV5                "REBOOTONLY"
+
+    /* Profiles */
+    IDS_USERPROFILE             "OS2.INI"
+    IDS_SYSTEMPROFILE           "OS2SYS.INI"
+    IDS_USERRESOURCE            ":\\OS2\\INI.RC"
+    IDS_SYSTEMRESOURCE          ":\\OS2\\INISYS.RC"
+
+    /* History */
+    IDS_SETUP                   "Initialisierung"
+    IDS_WRONGPASSWORD           "Falsches Pa·wort"
+    IDS_PRFRESET                "Profil umgeschaltet"
+
+    /* Namen der Tab-Marken */
+    IDS_WPSAM_PG1           "~WPSam"
+    IDS_WPSAM_INIT          "~Init OS/2"
+END
+
+/* Helptables */
+HELPTABLE IDH_MAIN
+    {
+    HELPITEM IDD_PWDIN, IDH_PWDIN, PANEL_PWDIN
+    HELPITEM IDD_ABOUT, IDH_ABOUT, PANEL_ABOUT
+    }
+
+/* IDD_PWDIN */
+HELPSUBTABLE IDH_PWDIN
+    {
+    HELPSUBITEM IDD_PWDIN, PANEL_PWDIN
+    }
+
+/* IDD_ABOUT */
+HELPSUBTABLE IDH_ABOUT
+    {
+    HELPSUBITEM IDD_ABOUT, PANEL_ABOUT
+    }
+

@@ -1,0 +1,30 @@
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+Sammy.exe:  \
+  Sammy.OBJ \
+  $(ODB) \
+  MAKEFILE
+  ilink.exe /NOFREE Sammy.OBJ $(LDB) $(ODB) /NOL /map /PM:PM,Sammy.exe,,cutil;
+
+# /I      Search path for include files
+# /Ss     Allow "//" for comment lines
+# /Q      Disable logo
+# /W      Warning
+#   cnv   Conversions
+#   par   Unused parameters
+#   pro   Missing function prototypes
+#   rea   Code that cannot be reached
+#   ret   Consistency of statements
+#   use   Unused "auto" and "static" variables
+# /Ti     Include debug information
+# /Ms     Use the system calling convention and not optilink as the default
+# /Gm     Use the multi-threaded libraries
+# /G4     Optimize code for 80486
+# /C      Compile don't link
+{.}.c.obj:
+   ICC.EXE /I.. /Ss /Q /Wcnvparprorearetuse /Ti /Ms /Gm /G4 /C  .\$*.c
+
+!include MAKEFILE.DEP
+
